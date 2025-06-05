@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+    background-color: #565656; /* Light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+  
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the bubble */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+}
+  
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #c9c9c9;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+}
+  
+h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #555555;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+}
+  
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+}
+  
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+}
+  
+button:hover {
+    background-color: #0056b3;
+}
