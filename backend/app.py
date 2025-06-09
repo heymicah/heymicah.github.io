@@ -87,7 +87,7 @@ def register():
 # ----------------------------
 # 8) Login route
 # ----------------------------
-@app.route("/api/login", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def login():
     """
     Expects JSON:

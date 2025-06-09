@@ -1,13 +1,16 @@
+// src/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 
-export default function YuweiDashboard() {
+export default function Dashboard() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
-    if (!token) return;
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
 
-    // Fetch the same /dashboard to get user info (or the backend could expose a separate /me endpoint)
     fetch(`${process.env.REACT_APP_API_BASE_URL}/dashboard`, {
       method: 'GET',
       headers: {
@@ -19,14 +22,7 @@ export default function YuweiDashboard() {
         if (!res.ok) throw new Error('Unauthorized');
         return res.json();
       })
-      .then((data) => {
-        if (data.username !== 'yuwei') {
-          // If somehow someone manually navigated here but isn't “yuwei”, redirect away
-          window.location.href = '/dashboard';
-        } else {
-          setUserData(data);
-        }
-      })
+      .then((data) => setUserData(data))
       .catch(() => {
         window.location.href = '/login';
       });
@@ -38,9 +34,9 @@ export default function YuweiDashboard() {
 
   return (
     <div>
-      <h2>Protected Dashboard for Yuwei</h2>
-      <p>Welcome back, {userData.username}!</p>
-      {/* …other protected content… */}
+      <h2>Dashboard</h2>
+      <p>Welcome, {userData.username}!</p>
+      {/* …general dashboard content… */}
     </div>
   );
 }
