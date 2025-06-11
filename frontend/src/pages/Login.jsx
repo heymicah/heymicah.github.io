@@ -10,7 +10,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   // Ensure this is set before building (e.g. via .env.production or CI)
-  const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+  // const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+  const API_BASE = "https://heymicah-github-io.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

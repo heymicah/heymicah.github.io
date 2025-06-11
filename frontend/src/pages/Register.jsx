@@ -11,7 +11,8 @@ export default function Register() {
   const navigate = useNavigate();
 
   // read the API base from your env (ensure you set REACT_APP_API_BASE_URL before build)
-  const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+  // const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+  const API_BASE = "https://heymicah-github-io.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
