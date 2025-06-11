@@ -56,14 +56,15 @@ export default function Login() {
       }
 
       const userInfo = await dashRes.json();
+      localStorage.setItem('jwtToken', token); // Ensure we store the token
       // userInfo should look like: { id: "...", username: "...", ... }
 
       // 4) Check if this logged-in user is the “specific” user (e.g. "micah")
       if (userInfo.username === 'yuwei') {
-        navigate('/yuwei-dashboard'); // route only for "yuwei"
+       window.location.href = "#/yuwei-dashboard"; // route only for "yuwei"
       } else {
         // Otherwise, send them to a general dashboard or show an “unauthorized” message
-        navigate('/dashboard');
+        window.location.href = "#/dashboard";
       }
 
     } catch (err) {

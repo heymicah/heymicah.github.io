@@ -41,7 +41,7 @@ export default function Register() {
       const data = await res.json();
       if (res.status === 201) {
         // Registration succeeded; redirect to login page (or auto-login)
-        navigate('/login');
+        navigate('#/login');
       } else {
         // Show error returned from backend
         setError(data.error || 'Registration failed');
@@ -98,7 +98,7 @@ export default function Register() {
       </form>
       <p>
         Already have an account?{' '}
-        <span className="link" onClick={() => navigate('/login')}>
+        <span className="link" onClick={() => navigate('#/login')}>
           Log in
         </span>
       </p>

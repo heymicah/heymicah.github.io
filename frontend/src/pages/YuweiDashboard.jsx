@@ -8,7 +8,7 @@ export default function YuweiDashboard() {
     if (!token) return;
 
     // Fetch the same /dashboard to get user info (or the backend could expose a separate /me endpoint)
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/dashboard`, {
+    fetch(`https://heymicah-github-io.onrender.com/dashboard`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -22,13 +22,13 @@ export default function YuweiDashboard() {
       .then((data) => {
         if (data.username !== 'yuwei') {
           // If somehow someone manually navigated here but isn't “yuwei”, redirect away
-          window.location.href = '/dashboard';
+          window.location.href = '#/dashboard';
         } else {
           setUserData(data);
         }
       })
       .catch(() => {
-        window.location.href = '/login';
+        window.location.href = '#/login';
       });
   }, []);
 

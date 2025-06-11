@@ -7,11 +7,11 @@ export default function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
-      window.location.href = '/login';
+      window.location.href = '#/login';
       return;
     }
 
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/dashboard`, {
+    fetch(`https://heymicah-github-io.onrender.com/dashboard`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export default function Dashboard() {
       })
       .then((data) => setUserData(data))
       .catch(() => {
-        window.location.href = '/login';
+        window.location.href = '#/login';
       });
   }, []);
 
