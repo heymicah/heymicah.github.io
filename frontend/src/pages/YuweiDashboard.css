@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #faffd1 0%, #d0ffe6 100%);
+}
+
+.yuwei-dashboard-container {
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #faffd1 0%, #d0ffe6 100%);
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #4bb37d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.yuwei-dashboard-container h2 {
+  margin-top: 2.5rem;
+  font-size: 2.2rem;
+  color: #ffe066;
+  text-shadow: 0 2px 8px #b7e778, 0 1px 0 #fff;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.yuwei-dashboard-container p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #4bb37d;
+  font-weight: 500;
+}
+
+.pixel-button {
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(90deg, #ffe066 60%, #b7e778 100%);
+  color: #4bb37d;
+  border: none;
+  border-radius: 24px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+  cursor: pointer;
+  box-shadow: 0 4px 16px #ffe06655;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  max-width: 90vw; /* Optional: prevents it from getting too wide on small screens */
+}
+
+.pixel-button:hover {
+  background: linear-gradient(90deg, #b7e778 60%, #ffe066 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px #b7e77855;
+}
+
+.pixel-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(186, 255, 201, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.pixel-modal-content {
+  background: #fffde4;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px #b7e77899;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 700px;      /* Increased from 90vw */
+  width: 90vw;           /* Responsive width */
+  max-height: 90vh;      /* Increased from 80vh */
+  overflow-y: auto;
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  color: #4bb37d;
+  text-align: center;
+  position: relative;
+  animation: modalPop 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pixel-modal-content h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #ffe066;
+  text-shadow: 0 2px 8px #b7e778, 0 1px 0 #fff;
+  font-weight: 700;
+}
+
+.pixel-modal-content button {
+  margin-top: 2rem;
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(90deg, #b7e778 60%, #ffe066 100%);
+  color: #4bb37d;
+  border: none;
+  border-radius: 16px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ffe06655;
+  transition: background 0.2s, transform 0.1s;
+  font-weight: 700;
+}
+
+.pixel-modal-content button:hover {
+  background: linear-gradient(90deg, #ffe066 60%, #b7e778 100%);
+  color: #fffde4;
+  transform: scale(1.05);
+}
+
+/* Cute accent: floating yellow-green heart */
+.yuwei-dashboard-container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 56px;
+  height: 56px;
+  background: url('https://emojicdn.elk.sh/💛') no-repeat center/contain;
+  opacity: 0.22;
+  z-index: 0;
+}
