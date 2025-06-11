@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './YuweiDashboard.css';
-import month1 from '/images/month1.png';
-import month2 from '/images/month2.png';
-import month3 from '/images/month3.png';
-import month4 from '/images/month4.png';
+import month1 from './images/month1.jpg';
+import month2 from './images/month2.jpg';
+import month3 from './images/month3.jpg';
+import month4 from './images/month4.PNG';
 
 export default function YuweiDashboard() {
   const [userData, setUserData] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [expandedImg, setExpandedImg] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
@@ -47,22 +48,22 @@ export default function YuweiDashboard() {
       <h2>Yuwei's Super Secret Page</h2>
       <p>Hey my love :)</p>
       <div className="image-grid">
-        <div className="image-item">
-          <img src={month1} alt="1" />
-          <div className="image-label">Month 1</div>
-        </div>
-        <div className="image-item">
-          <img src={month2} alt="2" />
-          <div className="image-label">Month 2</div>
-        </div>
-        <div className="image-item">
-          <img src={month3} alt="3" />
-          <div className="image-label">Month 3</div>
-        </div>
-        <div className="image-item">
-          <img src={month4} alt="4" />
-          <div className="image-label">Month 4</div>
-        </div>
+        {[
+          { src: month1, label: "Month 1" },
+          { src: month2, label: "Month 2" },
+          { src: month3, label: "Month 3" },
+          { src: month4, label: "Month 4" }
+        ].map((img, idx) => (
+          <div className="image-item" key={idx}>
+            <img
+              src={img.src}
+              alt={img.label}
+              onClick={() => setExpandedImg(img)}
+              style={{ cursor: "pointer" }}
+            />
+            <div className="image-label">{img.label}</div>
+          </div>
+        ))}
       </div>
       <button className="button" onClick={() => setShowModal(true)}>Tap to reveal letter</button>
 
@@ -100,6 +101,25 @@ export default function YuweiDashboard() {
               love, and I will do everything I can to give it to you. I love you yuwei ❤️<br />
             </p>
             <button onClick={() => setShowModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {expandedImg && (
+        <div className="modal-overlay" onClick={() => setExpandedImg(null)}>
+          <div
+            className="modal-content expanded-image-modal"
+            onClick={e => e.stopPropagation()}
+          >
+            <img
+              src={expandedImg.src}
+              alt={expandedImg.label}
+              className="expanded-image"
+            />
+            <div className="image-label" style={{ margin: "1rem 0 0 0" }}>
+              {expandedImg.label}
+            </div>
+            <button onClick={() => setExpandedImg(null)}>Close</button>
           </div>
         </div>
       )}
