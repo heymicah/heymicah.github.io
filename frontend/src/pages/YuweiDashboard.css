@@ -41,7 +41,7 @@ html, body {
   font-weight: 500;
 }
 
-.pixel-button {
+.button {
   font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(90deg, #ffe066 60%, #b7e778 100%);
   color: #4bb37d;
@@ -59,13 +59,13 @@ html, body {
   max-width: 90vw; /* Optional: prevents it from getting too wide on small screens */
 }
 
-.pixel-button:hover {
+.button:hover {
   background: linear-gradient(90deg, #b7e778 60%, #ffe066 100%);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 8px 24px #b7e77855;
 }
 
-.pixel-modal-overlay {
+.modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(186, 255, 201, 0.25);
@@ -76,7 +76,7 @@ html, body {
   backdrop-filter: blur(2px);
 }
 
-.pixel-modal-content {
+.modal-content {
   background: #fffde4;
   border: none;
   border-radius: 24px;
@@ -98,7 +98,7 @@ html, body {
   100% { transform: scale(1); opacity: 1; }
 }
 
-.pixel-modal-content h3 {
+.modal-content h3 {
   margin-top: 0;
   font-size: 1.4rem;
   color: #ffe066;
@@ -106,7 +106,7 @@ html, body {
   font-weight: 700;
 }
 
-.pixel-modal-content button {
+.modal-content button {
   margin-top: 2rem;
   font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(90deg, #b7e778 60%, #ffe066 100%);
@@ -121,7 +121,7 @@ html, body {
   font-weight: 700;
 }
 
-.pixel-modal-content button:hover {
+.modal-content button:hover {
   background: linear-gradient(90deg, #ffe066 60%, #b7e778 100%);
   color: #fffde4;
   transform: scale(1.05);

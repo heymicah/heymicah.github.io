@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './YuweiDashboard.css';
+import month1 from '/images/month1.png';
+import month2 from '/images/month2.png';
+import month3 from '/images/month3.png';
+import month4 from '/images/month4.png';
 
 export default function YuweiDashboard() {
   const [userData, setUserData] = useState(null);
@@ -42,15 +46,33 @@ export default function YuweiDashboard() {
     <div className="yuwei-dashboard-container">
       <h2>Yuwei's Super Secret Page</h2>
       <p>Hey my love :)</p>
-      <button className="pixel-button" onClick={() => setShowModal(true)}>Tap to reveal letter</button>
+      <div className="image-grid">
+        <div className="image-item">
+          <img src={month1} alt="1" />
+          <div className="image-label">Month 1</div>
+        </div>
+        <div className="image-item">
+          <img src={month2} alt="2" />
+          <div className="image-label">Month 2</div>
+        </div>
+        <div className="image-item">
+          <img src={month3} alt="3" />
+          <div className="image-label">Month 3</div>
+        </div>
+        <div className="image-item">
+          <img src={month4} alt="4" />
+          <div className="image-label">Month 4</div>
+        </div>
+      </div>
+      <button className="button" onClick={() => setShowModal(true)}>Tap to reveal letter</button>
 
       {showModal && (
         <div
-          className="pixel-modal-overlay"
+          className="modal-overlay"
           onClick={() => setShowModal(false)}
         >
           <div
-            className="pixel-modal-content"
+            className="modal-content"
             onClick={e => e.stopPropagation()}
           >
             <h3>Happy 4 Months</h3>
