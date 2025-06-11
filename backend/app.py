@@ -11,6 +11,7 @@ from flask_jwt_extended import (
     jwt_required,
     get_jwt_identity
 )
+from bson import ObjectId  # <-- Add this import
 
 # ----------------------------
 # 1) Load environment variables
@@ -132,8 +133,11 @@ def login():
 @jwt_required()  # client must send "Authorization: Bearer <JWT_TOKEN>"
 def dashboard():
     current_user_id = get_jwt_identity()
-    # Fetch user document if you need additional info:
-    user = users_coll.find_one({ "_id": mongo.db.ObjectId(current_user_id) }, { "password": 0 })
+    try:
+        user = users_coll.find_one({ "_id": ObjectId(current_user_id) }, { "password": 0 })
+    except Exception:
+        return jsonify({ "error": "Invalid user ID" }), 400
+
     if not user:
         return jsonify({ "error": "User not found" }), 404
 
