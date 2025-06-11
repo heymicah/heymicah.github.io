@@ -38,7 +38,7 @@ jwt = JWTManager(app)
 
 # Enable CORS (adjust the origin to your GitHub Pages domain)
 # e.g. "https://micah-tam.github.io"
-CORS(app, origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:3000")])
+CORS(app, origins="*")
 
 # ----------------------------
 # 4) Define collections
