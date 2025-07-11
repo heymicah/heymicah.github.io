@@ -1,13 +1,11 @@
 // src/components/Login.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   // Ensure this is set before building (e.g. via .env.production or CI)
   // const API_BASE = process.env.REACT_APP_API_BASE_URL || '';

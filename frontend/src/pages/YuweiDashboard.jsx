@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import Confetti from 'react-confetti';
 import './YuweiDashboard.css';
 import month1 from './images/month1.jpg';
 import month2 from './images/month2.jpg';
 import month3 from './images/month3.jpg';
 import month4 from './images/month4.PNG';
+import month5 from './images/month5.jpg';
+import letters from './letters';
 
 export default function YuweiDashboard() {
   const [userData, setUserData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [expandedImg, setExpandedImg] = useState(null);
+
+  const images = [
+    { src: month1, label: "1 Month", letter: letters.month1 },
+    { src: month2, label: "2 Months", letter: letters.month2 },
+    { src: month3, label: "3 Months", letter: letters.month3 },
+    { src: month4, label: "4 Months", letter: letters.month4 },
+    { src: month5, label: "5 Months", letter: letters.month5, objectPosition: "center 20%" }
+  ];
 
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
@@ -39,6 +50,14 @@ export default function YuweiDashboard() {
       });
   }, []);
 
+  // Get window size for confetti
+  const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
+  useEffect(() => {
+    const handleResize = () => setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (!userData) {
     return <div>Loading…</div>;
   }
@@ -48,18 +67,17 @@ export default function YuweiDashboard() {
       <h2>Yuwei's Super Secret Page</h2>
       <p>Hey my love :)</p>
       <div className="image-grid">
-        {[
-          { src: month1, label: "Month 1" },
-          { src: month2, label: "Month 2" },
-          { src: month3, label: "Month 3" },
-          { src: month4, label: "Month 4" }
-        ].map((img, idx) => (
+        {images.map((img, idx) => (
           <div className="image-item" key={idx}>
             <img
               src={img.src}
               alt={img.label}
               onClick={() => setExpandedImg(img)}
-              style={{ cursor: "pointer" }}
+              style={{
+                cursor: "pointer",
+                objectFit: "cover",
+                objectPosition: img.objectPosition || "center center"
+              }}
             />
             <div className="image-label">{img.label}</div>
           </div>
@@ -68,41 +86,24 @@ export default function YuweiDashboard() {
       <button className="button" onClick={() => setShowModal(true)}>Tap to reveal letter</button>
 
       {showModal && (
-        <div
-          className="modal-overlay"
-          onClick={() => setShowModal(false)}
-        >
+        <>
+          <Confetti width={dimensions.width} height={dimensions.height} numberOfPieces={500} recycle={false} />
           <div
-            className="modal-content"
-            onClick={e => e.stopPropagation()}
+            className="modal-overlay"
+            onClick={() => setShowModal(false)}
           >
-            <h3>Happy 4 Months</h3>
-            <p>
-              Hey my love :)<br /><br />
-              I know this is a bit of a different medium. I know it's not handwritten,<br />
-              but this also took much longer than any handwritten card so hopefully you<br />
-              like it lol. Four big ones, seems like 3 months was so long ago since so <br />
-              much has happened and changed in our lives since we were last together.<br />
-              However, the one thing that has remained constant has been my love for you :)<br />
-              You've made waking up at 7am something I look forward to, and I don't know how<br />
-              sustainable that is for you with your scheudule, but this past month you've done<br />
-              more for me than you know :) and from the moment I say goodnight to you, I am<br />
-              counting the hours until I can see you again. Truly, the sound of your voice is <br />
-              a melody I could listen to all day. Believe me when I say no one has ever made <br />
-              me feel the way you make me feel. Your presence alone gives me so much comfort <br />
-              and warmth, and I really just feel like I can be myself around you. I hope you <br />
-              find the same comfort with me too :) Whether you're in the best mood or tired and <br />
-              worn down, you can always come to me as you are, and while I might not have all <br />
-              the solutions, I will always be there for you :) It really does feel so long ago <br />
-              when we barely knew each other, and I still can't believe how effortlessly this <br />
-              friendship bloomed. From long nights to even longer nights to random adventures <br />
-              and quests, there's no one else I'd rather be with to experience life. I just hope <br />
-              one day we can take our adventures out of Florida lol. You deserve the world my <br />
-              love, and I will do everything I can to give it to you. I love you yuwei ❤️<br />
-            </p>
-            <button onClick={() => setShowModal(false)}>Close</button>
+            <div
+              className="modal-content"
+              onClick={e => e.stopPropagation()}
+            >
+              <h3>Happy 5 Months</h3>
+              <p>
+                Oh my gosh we’re back to physical :) Well well well, 5 months. 5 months spent with my favorite person in the world. 5 months getting to know your highs, lows, and everything in between. And call me greedy, but I want more. I want to keep learning more about you, more about your goals, your dreams, and all your beautiful little idiosyncrasies. Like the way you describe exactly how you like to do something, or how you’re so particular with picking out each individual kernel of corn, it makes me fall more in love with you every day. And when you say “I don’t know how you can find this cute”, I can’t help but just stare into your eyes wishing you knew what it was like to look at the most beautiful girl in the world. They say real love is when distance makes the heart grow fonder, and I must admit I’m falling quite hard over you. An ocean and a continent between us, and my heart still flutters at the thought of you. You’re truly one of a kind yuwei. The way you carry yourself, your fearlessness and tenacity, it’s truly quite impressive :) And that’s another reason why I love you. Because you don’t need me yuwei, you are already so impressive on your own. Yet despite all of my quirks and little things, you chose me. And what an honor and privilege it is to live life beside you. Our time together has been the happiest I’ve ever felt, and I don’t say that just to say, I truly mean that only you have made me feel this way. So thank you :) Thank you for sticking by my side, thank you for all the laughs we’ve shared and all the adventures we’ve gone on together. You really do make the world better just by being in it my love. I only ask if I could have the pleasure of walking this life with you—after all, you need someone to hold your map. Wherever this journey takes us, know I love you yuwei ❤️
+              </p>
+              <button onClick={() => setShowModal(false)}>Close</button>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {expandedImg && (
@@ -118,6 +119,9 @@ export default function YuweiDashboard() {
             />
             <div className="image-label" style={{ margin: "1rem 0 0 0" }}>
               {expandedImg.label}
+            </div>
+            <div className="image-letter" style={{ margin: "1rem 0" }}>
+              {expandedImg.letter}
             </div>
             <button onClick={() => setExpandedImg(null)}>Close</button>
           </div>

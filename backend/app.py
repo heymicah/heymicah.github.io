@@ -11,7 +11,7 @@ from flask_jwt_extended import (
     jwt_required,
     get_jwt_identity
 )
-from bson import ObjectId  # <-- Add this import
+from bson import ObjectId
 
 # ----------------------------
 # 1) Load environment variables
