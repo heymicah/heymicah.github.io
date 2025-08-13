@@ -6,19 +6,22 @@ import month2 from './images/month2.jpg';
 import month3 from './images/month3.jpg';
 import month4 from './images/month4.PNG';
 import month5 from './images/month5.jpg';
+import month6 from './images/month6.jpeg';
 import letters from './letters';
 
 export default function YuweiDashboard() {
   const [userData, setUserData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [expandedImg, setExpandedImg] = useState(null);
+  const [keySequence, setKeySequence] = useState('');
 
   const images = [
     { src: month1, label: "1 Month", letter: letters.month1 },
     { src: month2, label: "2 Months", letter: letters.month2 },
     { src: month3, label: "3 Months", letter: letters.month3 },
     { src: month4, label: "4 Months", letter: letters.month4 },
-    { src: month5, label: "5 Months", letter: letters.month5, objectPosition: "center 20%" }
+    { src: month5, label: "5 Months", letter: letters.month5, objectPosition: "center 20%" },
+    { src: month6, label: "6 Months", letter: letters.month6 }
   ];
 
   useEffect(() => {
@@ -58,6 +61,22 @@ export default function YuweiDashboard() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Keyboard listener for "valentine's day"
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const newSequence = (keySequence + e.key.toLowerCase()).slice(-20); // Keep last 20 chars to be safe
+      setKeySequence(newSequence);
+      
+      if (newSequence.includes("valentine's day")) {
+        window.open('https://youtu.be/nHFCB22JDFg', '_blank');
+        setKeySequence('');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [keySequence]);
+
   if (!userData) {
     return <div>Loading…</div>;
   }
@@ -96,9 +115,9 @@ export default function YuweiDashboard() {
               className="modal-content"
               onClick={e => e.stopPropagation()}
             >
-              <h3>Happy 5 Months</h3>
+              <h3>Happy 6 Months</h3>
               <p>
-                Oh my gosh we’re back to physical :) Well well well, 5 months. 5 months spent with my favorite person in the world. 5 months getting to know your highs, lows, and everything in between. And call me greedy, but I want more. I want to keep learning more about you, more about your goals, your dreams, and all your beautiful little idiosyncrasies. Like the way you describe exactly how you like to do something, or how you’re so particular with picking out each individual kernel of corn, it makes me fall more in love with you every day. And when you say “I don’t know how you can find this cute”, I can’t help but just stare into your eyes wishing you knew what it was like to look at the most beautiful girl in the world. They say real love is when distance makes the heart grow fonder, and I must admit I’m falling quite hard over you. An ocean and a continent between us, and my heart still flutters at the thought of you. You’re truly one of a kind yuwei. The way you carry yourself, your fearlessness and tenacity, it’s truly quite impressive :) And that’s another reason why I love you. Because you don’t need me yuwei, you are already so impressive on your own. Yet despite all of my quirks and little things, you chose me. And what an honor and privilege it is to live life beside you. Our time together has been the happiest I’ve ever felt, and I don’t say that just to say, I truly mean that only you have made me feel this way. So thank you :) Thank you for sticking by my side, thank you for all the laughs we’ve shared and all the adventures we’ve gone on together. You really do make the world better just by being in it my love. I only ask if I could have the pleasure of walking this life with you—after all, you need someone to hold your map. Wherever this journey takes us, know I love you yuwei ❤️
+                Half a year—6 months—26 weeks—181 days—4,344 hours—260,640 minutes—15,638,400 seconds loving you. To think just 6 months ago my life was completely different is insane to me because you feel so much like home. The comfort of simply being with you is so familiar, so homey that it feels like I’ve known you all my life. Maybe it’s the way you say my name or how you always show up for me, but these past 6 months I’ve noticed I’ve smiled more, laughed harder, and been happier than ever. You have changed my life more than you know, and I’m just so grateful our paths crossed when they did. I still remember that first conversation when you listed all your ‘warnings’, and I couldn’t help but laugh because even then I think I knew exactly who I was falling in love with. These aren’t warnings, but features that I’d soon get to love about you, because I was falling for all of you, not just what you wanted to show me on the surface. You were so stressed during that conversation, I could hear it in your voice, but I’ve never told you how anxious I was. The butterflies I felt that night, I’ve never felt anything quite the same. Because to me you were always so perfect, so smart, so funny, so beautiful, so far out of my atmosphere, and yet out of everyone, you chose me. How lucky am I to call you mine, and how proud I am to call you my girlfriend. Ever since we started dating my mindset about life and purpose really did change. No longer was it an “I” thing, but rather—we. I don’t want to build my future, I want to build ours. And while I know it might not always be smooth sailing, and storms will inevitably arise, there’s no one I’d rather navigate rough waters with than you yuwei. So unfortunately, the option of me having second thoughts and falling out of love is off the table. Six months have flown by, and I have a feeling we’re only getting started. Yuwei, I truly love you from the bottom of my heart and I can’t wait for what these next six months have in store for us ❤️
               </p>
               <button onClick={() => setShowModal(false)}>Close</button>
             </div>
