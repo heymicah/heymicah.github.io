@@ -7,6 +7,8 @@ import month3 from './images/month3.jpg';
 import month4 from './images/month4.PNG';
 import month5 from './images/month5.jpg';
 import month6 from './images/month6.jpeg';
+import month7 from './images/month7.jpg';
+import birthday20 from './images/birthday20.jpg';
 import letters from './letters';
 
 export default function YuweiDashboard() {
@@ -21,7 +23,9 @@ export default function YuweiDashboard() {
     { src: month3, label: "3 Months", letter: letters.month3 },
     { src: month4, label: "4 Months", letter: letters.month4 },
     { src: month5, label: "5 Months", letter: letters.month5, objectPosition: "center 20%" },
-    { src: month6, label: "6 Months", letter: letters.month6 }
+    { src: month6, label: "6 Months", letter: letters.month6 },
+    { src: month7, label: "7 Months", letter: letters.month7 },
+    { src: birthday20, label: "20th Birthday!", letter: letters.birthday20 },
   ];
 
   useEffect(() => {
@@ -115,9 +119,9 @@ export default function YuweiDashboard() {
               className="modal-content"
               onClick={e => e.stopPropagation()}
             >
-              <h3>Happy 6 Months</h3>
+              <h3>Happy Birthday My Love!</h3>
               <p>
-                Half a year—6 months—26 weeks—181 days—4,344 hours—260,640 minutes—15,638,400 seconds loving you. To think just 6 months ago my life was completely different is insane to me because you feel so much like home. The comfort of simply being with you is so familiar, so homey that it feels like I’ve known you all my life. Maybe it’s the way you say my name or how you always show up for me, but these past 6 months I’ve noticed I’ve smiled more, laughed harder, and been happier than ever. You have changed my life more than you know, and I’m just so grateful our paths crossed when they did. I still remember that first conversation when you listed all your ‘warnings’, and I couldn’t help but laugh because even then I think I knew exactly who I was falling in love with. These aren’t warnings, but features that I’d soon get to love about you, because I was falling for all of you, not just what you wanted to show me on the surface. You were so stressed during that conversation, I could hear it in your voice, but I’ve never told you how anxious I was. The butterflies I felt that night, I’ve never felt anything quite the same. Because to me you were always so perfect, so smart, so funny, so beautiful, so far out of my atmosphere, and yet out of everyone, you chose me. How lucky am I to call you mine, and how proud I am to call you my girlfriend. Ever since we started dating my mindset about life and purpose really did change. No longer was it an “I” thing, but rather—we. I don’t want to build my future, I want to build ours. And while I know it might not always be smooth sailing, and storms will inevitably arise, there’s no one I’d rather navigate rough waters with than you yuwei. So unfortunately, the option of me having second thoughts and falling out of love is off the table. Six months have flown by, and I have a feeling we’re only getting started. Yuwei, I truly love you from the bottom of my heart and I can’t wait for what these next six months have in store for us ❤️
+                  Happy birthday sweetheart :) you have made it! The big two oh, two decades of experience right here! I just first want to say how lucky I am to get to see you grow and tackle new experiences with such elegance and grace. I’m genuinely so proud of you and the person you’re growing up to be. And yet, I still love being silly with you :) in fact you’re my favorite person to be silly with, and I hope no matter our age we’ll still have that sense of whimsy. Truly your smile and your laugh are a match made in heaven, and through the years I will try my very best to keep you both laughing at and with me. Keep being you my love, and I cannot wait for what this year has in store for you. Happy birthday, I love you yuwei ❤️
               </p>
               <button onClick={() => setShowModal(false)}>Close</button>
             </div>
